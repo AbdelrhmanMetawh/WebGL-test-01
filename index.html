@@ -4,46 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>WebGL Mobile Test</title>
-	<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  #unityContainer, canvas {
-    position: absolute;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-  }
-</style>
   </head>
   <body style="text-align: center">
     <canvas id="unity-canvas" width=1920 height=1080 style="width: 1920px; height: 1080px; background: #000000"></canvas>
     <script src="Build/Web Build.loader.js"></script>
     <script>
-	
-		function resizeCanvas() {
-			var canvas = document.querySelector('unity-canvas'); // Locate the Unity WebGL canvas
-			if (canvas) {
-			canvas.style.width = window.innerWidth + 'px';
-			canvas.style.height = window.innerHeight + 'px';
-			}
-		}
-
-	// Resize the canvas on load and when the window resizes
-	window.addEventListener('load', resizeCanvas);
-	window.addEventListener('resize', resizeCanvas);
-  
       /*if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+
+      }*/
+
+	// Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
-      }*/
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/Web Build.data",
