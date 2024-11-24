@@ -116,6 +116,23 @@
         });
       };
       document.body.appendChild(script);
+
+      //start
+      window.addEventListener("orientationchange", function () {
+    setTimeout(function () {
+        var canvas = document.getElementById("unity-canvas");
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+
+        // Notify Unity of the resize
+        if (typeof unityInstance !== 'undefined' && unityInstance.Module) {
+            unityInstance.Module.canvas.width = window.innerWidth;
+            unityInstance.Module.canvas.height = window.innerHeight;
+        }
+    }, 500); // Add delay to ensure rotation is complete
+});
+      //end
+      
     </script>
   </body>
 </html>
